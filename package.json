@@ -8,13 +8,31 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint:fix": "eslint --fix \"{,!(node_modules|public)/**/}*.{js,svelte}\"",
+    "lint:format": "prettier --write \"{,!(node_modules|public)/**/}*.{js,svelte}\"",
+    "lint": "yarn lint:format && yarn lint:fix ",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "latest",
     "@tsconfig/svelte": "latest",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
     "autoprefixer": "latest",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
     "postcss": "latest",
+    "prettier": "^2.7.1",
+    "prettier-plugin-svelte": "^2.7.0",
     "svelte": "latest",
     "svelte-check": "latest",
     "svelte-preprocess": "latest",
@@ -25,5 +43,12 @@
   },
   "dependencies": {
     "svelte-routing": "latest"
+  },
+  "lint-staged": {
+    "*.{js,ts,svelte,css,scss,postcss,md,json}": [
+      "prettier --write --plugin-search-dir=.",
+      "prettier --check --plugin-search-dir=."
+    ],
+    "*.{js,ts,svelte}": "eslint --fix"
   }
 }

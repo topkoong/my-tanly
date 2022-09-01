@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Navbar from './lib/components/Navbar.svelte';
-  import About from './lib/components/About.svelte';
-  import Facts from './lib/components/Facts.svelte';
-  import { Router, Route } from 'svelte-routing';
-  import Home from './lib/components/Home.svelte';
-  import Moments from './lib/components/Moments.svelte';
+  import About from '@lib/components/About.svelte';
+  import Facts from '@lib/components/Facts.svelte';
+  import Home from '@lib/components/Home.svelte';
+  import Moments from '@lib/components/Moments.svelte';
+  import Navbar from '@lib/components/Navbar.svelte';
+  import { Route,Router } from 'svelte-routing';
   export let url = '';
 </script>
 
